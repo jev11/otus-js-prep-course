@@ -1,7 +1,7 @@
-import { getMonth, compareNumbers, circleFitsInSquare } from './script.js';
+import { getMonth, compareNumbers, circleFitsInSquare } from "./script.js";
 
-describe('compareNumbers', () => {
-  it('is a function', () => {
+describe("compareNumbers", () => {
+  it("is a function", () => {
     expect(compareNumbers).toBeInstanceOf(Function);
   });
   [
@@ -15,24 +15,24 @@ describe('compareNumbers', () => {
   });
 });
 
-describe('getMonth', () => {
-  it('is a function', () => {
+describe("getMonth", () => {
+  it("is a function", () => {
     expect(getMonth).toBeInstanceOf(Function);
   });
   [
-    [1, 'Январь'],
-    [2, 'Февраль'],
-    [3, 'Март'],
-    [4, 'Апрель'],
-    [5, 'Май'],
-    [6, 'Июнь'],
-    [7, 'Июль'],
-    [8, 'Август'],
-    [9, 'Сентябрь'],
-    [10, 'Октябрь'],
-    [11, 'Ноябрь'],
-    [12, 'Декабрь'],
-    [13, 'Такого месяца не существует'],
+    [1, "Январь"],
+    [2, "Февраль"],
+    [3, "Март"],
+    [4, "Апрель"],
+    [5, "Май"],
+    [6, "Июнь"],
+    [7, "Июль"],
+    [8, "Август"],
+    [9, "Сентябрь"],
+    [10, "Октябрь"],
+    [11, "Ноябрь"],
+    [12, "Декабрь"],
+    [13, "Такого месяца не существует"],
   ].forEach(([number, month]) => {
     it(`Returns month ${month} for number ${number}`, () => {
       expect(getMonth(number)).toBe(month);
@@ -40,8 +40,8 @@ describe('getMonth', () => {
   });
 });
 
-describe('circleFitsInSquare', () => {
-  it('is a function', () => {
+describe("circleFitsInSquare", () => {
+  it("is a function", () => {
     expect(circleFitsInSquare).toBeInstanceOf(Function);
   });
   [

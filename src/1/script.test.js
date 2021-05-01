@@ -1,7 +1,7 @@
-import { sum, prod, digitSum } from './script.js';
+import { sum, prod, digitSum } from "./script.js";
 
-describe('sum', () => {
-  it('is a function', () => {
+describe("sum", () => {
+  it("is a function", () => {
     expect(sum).toBeInstanceOf(Function);
   });
   [
@@ -15,8 +15,8 @@ describe('sum', () => {
   });
 });
 
-describe('prod', () => {
-  it('is a function', () => {
+describe("prod", () => {
+  it("is a function", () => {
     expect(prod).toBeInstanceOf(Function);
   });
   [
@@ -31,8 +31,8 @@ describe('prod', () => {
   });
 });
 
-describe('digitSum', () => {
-  it('is a function', () => {
+describe("digitSum", () => {
+  it("is a function", () => {
     expect(digitSum).toBeInstanceOf(Function);
   });
   [
