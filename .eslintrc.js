@@ -12,6 +12,7 @@ module.exports = {
   rules: {
     "import/prefer-default-export": "off",
     "max-len": ["error", { ignoreComments: true }],
+    "no-param-reassign": ["error", { props: false }],
   },
   plugins: ["jest"],
 };

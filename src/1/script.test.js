@@ -1,4 +1,4 @@
-import { sum, prod, digitSum } from "./script.js";
+import { sum, prod, digitSum } from "./script";
 
 describe("sum", () => {
   it("is a function", () => {
@@ -41,7 +41,7 @@ describe("digitSum", () => {
     [100, 1],
     [110, 2],
   ].forEach(([number, result]) => {
-    it(`returns sum of a natural three digit number ${number} to be equal ${result}`, () => {
+    it(`returns sum of digits in number ${number} equal to ${result}`, () => {
       expect(digitSum(number)).toBe(result);
     });
   });

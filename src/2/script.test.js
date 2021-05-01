@@ -1,4 +1,4 @@
-import { getMonth, compareNumbers, circleFitsInSquare } from "./script.js";
+import { getMonth, compareNumbers, circleFitsInSquare } from "./script";
 
 describe("compareNumbers", () => {
   it("is a function", () => {
@@ -9,7 +9,8 @@ describe("compareNumbers", () => {
     [0, 1, 1],
     [-5, 5, 5],
   ].forEach(([a, b, output]) => {
-    it(`compares numbers ${a} and ${b} and returns the largest  number ${output}`, () => {
+    it(`compares numbers ${a} and ${b} and returns the largest 
+      number ${output}`, () => {
       expect(compareNumbers(a, b)).toBe(output);
     });
   });
@@ -50,7 +51,8 @@ describe("circleFitsInSquare", () => {
     [20, 15, false],
     [2, 1, false],
   ].forEach(([circleS, squareS, result]) => {
-    it(`returns ${result} if cirsle with area ${circleS} fits into sqaure with area ${squareS}`, () => {
+    it(`returns ${result} if cirsle with area 
+      ${circleS} fits into sqaure with area ${squareS}`, () => {
       expect(circleFitsInSquare(circleS, squareS)).toBe(result);
     });
   });
