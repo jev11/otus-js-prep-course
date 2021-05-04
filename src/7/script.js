@@ -38,8 +38,3 @@ export function createList(el) {
     button.hidden = true;
   });
 }
-
-const element = document.createElement("div");
-const body = document.querySelector("body");
-body.insertAdjacentElement("afterbegin", element);
-createList(element);

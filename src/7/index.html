@@ -4,6 +4,12 @@
     <title>Lesson 7</title>
   </head>
   <body>
-    <script type="module" src="script.js"></script>
+    <div id="app"></div>
+    <script type="module">
+      import { createList } from "./script.js";
+      const app = document.querySelector("#app");
+      console.log(app);
+      createList(app);
+    </script>
   </body>
 </html>
