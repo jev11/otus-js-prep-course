@@ -30,4 +30,14 @@ describe("createList", () => {
     el.querySelector("button").click();
     expect(el.querySelector(".history").innerHTML).toBe("<p>efgh</p>");
   });
+
+  it("keeps only last 5 entries in history", () => {
+    ["1", "2", "3", "4", "5", "6"].forEach((p) => {
+      el.querySelector("input").value = p;
+      el.querySelector("button").click();
+    });
+    expect(el.querySelector(".history").innerHTML).toBe(
+      "<p>6</p><p>5</p><p>4</p><p>3</p><p>2</p>"
+    );
+  });
 });
