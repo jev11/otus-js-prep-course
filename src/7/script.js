@@ -16,7 +16,7 @@ export function createList(el) {
   <div class="history"></div>`;
   const input = el.querySelector("input");
   const button = el.querySelector("button");
-  const history = document.querySelector(".history");
+  const history = el.querySelector(".history");
 
   const list = [];
 
