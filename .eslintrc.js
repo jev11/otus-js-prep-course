@@ -11,6 +11,7 @@ module.exports = {
   },
   rules: {
     "import/prefer-default-export": "off",
+    "no-alert": "off",
     "no-console": "off",
     "max-len": ["error", { ignoreComments: true }],
     "no-param-reassign": ["error", { props: false }], // required for homework 4

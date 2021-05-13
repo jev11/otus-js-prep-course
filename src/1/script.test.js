@@ -1,5 +1,14 @@
 import { sum, prod, digitSum } from "./script";
 
+let log;
+beforeEach(() => {
+  log = console.log;
+  console.log = jest.fn();
+});
+afterEach(() => {
+  console.log = log;
+});
+
 describe("sum", () => {
   it("is a function", () => {
     expect(sum).toBeInstanceOf(Function);
@@ -10,7 +19,8 @@ describe("sum", () => {
     [-5, 5, 0],
   ].forEach(([a, b, result]) => {
     it(`returns sum of ${a} and ${b} to be equal ${result}`, () => {
-      expect(sum(a, b)).toBe(result);
+      sum(a, b);
+      expect(console.log).toHaveBeenCalledWith(result);
     });
   });
 });
@@ -26,7 +36,8 @@ describe("prod", () => {
     [3, 5, 15],
   ].forEach(([a, b, result]) => {
     it(`returns product of ${a} and ${b} to be equal ${result}`, () => {
-      expect(prod(a, b)).toBe(result);
+      prod(a, b);
+      expect(console.log).toHaveBeenCalledWith(result);
     });
   });
 });
@@ -42,7 +53,9 @@ describe("digitSum", () => {
     [110, 2],
   ].forEach(([number, result]) => {
     it(`returns sum of digits in number ${number} equal to ${result}`, () => {
-      expect(digitSum(number)).toBe(result);
+      window.prompt = jest.fn().mockImplementation(() => number);
+      digitSum();
+      expect(console.log).toHaveBeenCalledWith(result);
     });
   });
 });
