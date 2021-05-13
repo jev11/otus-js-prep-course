@@ -24,7 +24,10 @@ describe("isWord", () => {
   [
     ["one", true],
     ["two words", false],
+    ["four words, four words", false],
+    ["two words. two sentences.", false],
     ["This is false", false],
+    ["This   is    false   too", false],
     ["", false],
   ].forEach(([str, result]) => {
     it(`returns ${result} for "${str}"`, () => {

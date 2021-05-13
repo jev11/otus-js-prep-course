@@ -8,7 +8,7 @@ export function isWord(str) {
   if (str === "") {
     return false;
   }
-  return str.split(" ").length === 1;
+  return str.split(/[\s+/,/.]/).length === 1;
 }
 
 // *Напишите функцию pow(a, x), которая вернёт значение числа a, возведённого в степень x.
