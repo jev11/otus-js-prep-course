@@ -1,9 +1,18 @@
 import { getMonth, compareNumbers, circleFitsInSquare } from "./script";
 
 describe("compareNumbers", () => {
+  let log;
+  beforeEach(() => {
+    log = console.log;
+    console.log = jest.fn();
+  });
+  afterEach(() => {
+    console.log = log;
+  });
   it("is a function", () => {
     expect(compareNumbers).toBeInstanceOf(Function);
   });
+
   [
     [1, 2, 2],
     [0, 1, 1],
@@ -11,12 +20,21 @@ describe("compareNumbers", () => {
   ].forEach(([a, b, output]) => {
     it(`compares numbers ${a} and ${b} and returns the largest 
       number ${output}`, () => {
-      expect(compareNumbers(a, b)).toBe(output);
+      compareNumbers(a, b);
+      expect(console.log).toHaveBeenCalledWith(output);
     });
   });
 });
 
 describe("getMonth", () => {
+  let log;
+  beforeEach(() => {
+    log = console.log;
+    console.log = jest.fn();
+  });
+  afterEach(() => {
+    console.log = log;
+  });
   it("is a function", () => {
     expect(getMonth).toBeInstanceOf(Function);
   });
@@ -33,10 +51,11 @@ describe("getMonth", () => {
     [10, "Октябрь"],
     [11, "Ноябрь"],
     [12, "Декабрь"],
-    [13, "Такого месяца не существует"],
   ].forEach(([number, month]) => {
     it(`Returns month ${month} for number ${number}`, () => {
-      expect(getMonth(number)).toBe(month);
+      window.prompt = jest.fn().mockImplementation(() => number);
+      getMonth(number);
+      expect(console.log).toHaveBeenCalledWith(month);
     });
   });
 });
