@@ -1,6 +1,15 @@
 import { arraySum, doubleValue, findSmallestAndLargest } from "./script";
 
 describe("arraySum", () => {
+  let log;
+  beforeEach(() => {
+    log = console.log;
+    console.log = jest.fn();
+  });
+  afterEach(() => {
+    console.log = log;
+  });
+
   it("is a function", () => {
     expect(arraySum).toBeInstanceOf(Function);
   });
@@ -11,7 +20,8 @@ describe("arraySum", () => {
     [[1], 1],
   ].forEach(([arr, result]) => {
     it("it returns summary of array", () => {
-      expect(arraySum(arr)).toBe(result);
+      arraySum(arr);
+      expect(console.log).toHaveBeenCalledWith(result);
     });
   });
 });
@@ -38,6 +48,14 @@ describe("doubleValue", () => {
 });
 
 describe("findSmallestAndLargest", () => {
+  let log;
+  beforeEach(() => {
+    log = console.log;
+    console.log = jest.fn();
+  });
+  afterEach(() => {
+    console.log = log;
+  });
   it("is a function", () => {
     expect(findSmallestAndLargest).toBeInstanceOf(Function);
   });
@@ -54,7 +72,8 @@ describe("findSmallestAndLargest", () => {
     [[], []],
   ].forEach(([arr, result]) => {
     it("it finds the smallest and largest element in the array", () => {
-      expect(findSmallestAndLargest(arr)).toStrictEqual(result);
+      findSmallestAndLargest(arr);
+      expect(console.log).toHaveBeenCalledWith(result);
     });
   });
 });
