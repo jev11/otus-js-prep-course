@@ -1,25 +1,18 @@
 // 1.Запросите у пользователя дату в формате ДД.ММ.ГГГГ. Напишите программу, выводящую день недели по введённой дате.
-export function dayOfWeek(date) {
+export function dayOfWeek() {
+  const date = prompt("Введите дату в формате ДД.ММ.ГГГГ");
   const [day, month, year] = date.split(".");
   const parsedDate = new Date(`${year}-${month}-${day}`);
-  switch (parsedDate.getDay()) {
-    case 0:
-      return "Sunday";
-    case 1:
-      return "Monday";
-    case 2:
-      return "Tuesday";
-    case 3:
-      return "Wednesday";
-    case 4:
-      return "Thursday";
-    case 5:
-      return "Friday";
-    case 6:
-      return "Saturday";
-    default:
-      return "Date is not parsed correctly";
-  }
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  console.log(days[parsedDate.getDay()]);
 }
 
 // 2.Написать программу, которая выводит в консоль количество минут, прошедшее с начала сегодняшнего дня.

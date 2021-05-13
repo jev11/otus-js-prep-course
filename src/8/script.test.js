@@ -1,6 +1,15 @@
 import { dayOfWeek, minutesSinceToday, youngerUser } from "./script";
 
 describe("dayOfWeek", () => {
+  let log;
+  beforeEach(() => {
+    log = console.log;
+    console.log = jest.fn();
+  });
+  afterEach(() => {
+    console.log = log;
+  });
+
   it("is a function", () => {
     expect(dayOfWeek).toBeInstanceOf(Function);
   });
@@ -11,7 +20,9 @@ describe("dayOfWeek", () => {
     ["11.01.2100", "Monday"],
   ].forEach(([date, day]) => {
     it(`returns ${day} for ${date}`, () => {
-      expect(dayOfWeek(date)).toBe(day);
+      window.prompt = jest.fn().mockImplementation(() => date);
+      dayOfWeek(date);
+      expect(console.log).toHaveBeenCalledWith(day);
     });
   });
 });
