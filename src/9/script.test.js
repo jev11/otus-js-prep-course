@@ -18,6 +18,15 @@ describe("rightTriangle", () => {
 });
 
 describe("circleCA", () => {
+  let log;
+  beforeEach(() => {
+    log = console.log;
+    console.log = jest.fn();
+  });
+  afterEach(() => {
+    console.log = log;
+  });
+
   it("is a function", () => {
     expect(circleCA).toBeInstanceOf(Function);
   });
@@ -28,12 +37,22 @@ describe("circleCA", () => {
   ].forEach(([radius, circ, area]) => {
     it(`calculates circumference ${circ} and area ${area}
      for circle with radius ${radius}`, () => {
-      expect(circleCA(radius)).toStrictEqual([circ, area]);
+      window.prompt = jest.fn().mockImplementation(() => radius);
+      circleCA();
+      expect(console.log).toHaveBeenCalledWith([circ, area]);
     });
   });
 });
 
 describe("quadraticEquation", () => {
+  let log;
+  beforeEach(() => {
+    log = console.log;
+    console.log = jest.fn();
+  });
+  afterEach(() => {
+    console.log = log;
+  });
   it("is a function", () => {
     expect(quadraticEquation).toBeInstanceOf(Function);
   });
@@ -45,7 +64,9 @@ describe("quadraticEquation", () => {
   ].forEach(([a, b, c, result]) => {
     it(`solves quadratic equation ${a}x^2+${b}x+${c}=0 with x 
     equal to ${result}`, () => {
-      expect(quadraticEquation(a, b, c)).toStrictEqual(result);
+      window.prompt = jest.fn().mockImplementation(() => `${a}, ${b}, ${c}`);
+      quadraticEquation();
+      expect(console.log).toHaveBeenCalledWith(result);
     });
   });
 });
