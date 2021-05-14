@@ -1,4 +1,8 @@
 {
+  "name": "otus-js-prep-course",
+  "version": "1.0.0",
+  "description": "home assignment solution for Otus JS prep course",
+  "private": true,
   "scripts": {
     "test": "jest",
     "lint": "prettier --check src/**/*.js && eslint src/**/*.js",
